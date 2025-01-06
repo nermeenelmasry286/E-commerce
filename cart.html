@@ -61,22 +61,10 @@
     <section class="cart py-5 content">
         <div class="container">
             <h1 class="mb-4">Your Cart</h1>
-<div class="cart-item">
-                <img src="imgs/homepage-img2.jpeg" alt="Luxury Sofa">
-                <div class="cart-details">
-                    <h4>Luxury Sofa</h4>
-                    <p>Price: $350</p>
-                    <p>Total: $350</p>
-                </div>
-                <div class="cart-actions">
-                    <input type="number" class="form-control mb-2" value="1" min="1">
-                    <button class="btn btn-danger btn-sm">Remove</button>
-                </div>
-            </div>
-            <!-- Repeat for more items -->
+
             <div class="cart-summary">
-                <h4>Total: $350</h4>
-                <button class="btn btn-primary">Proceed to Checkout</button>
+                <h4>Total: $<span id="cart-total">350</span></h4>
+                <button id="proceed-to-checkout" class="btn btn-primary">Proceed to Checkout</button>
             </div>
         </div>
     </section>
@@ -92,6 +80,7 @@
         </div>
     </footer>
 
+    <script src="js/cart.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

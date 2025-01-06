@@ -110,6 +110,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+   // Function to add product to cart
+   function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
+}
+
+// Event listener for add-product buttons
+document.querySelectorAll('.add-product').forEach(button => {
+    button.addEventListener('click', () => {
+        const product = JSON.parse(button.getAttribute('data-product'));
+        addToCart(product);
+    });
+});
+
+
+
+
     // Existing code...
 });
 
