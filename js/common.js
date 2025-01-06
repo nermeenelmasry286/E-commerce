@@ -29,4 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const productData = JSON.parse(event.target.getAttribute('data-product'));
         
     }
+
+    // Function to update cart count
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalQuantity = cart.reduce((sum, product) => sum + (product.quantity || 1), 0);
+        document.getElementById('cart-count').textContent = totalQuantity;
+    }
+
+    // Call updateCartCount on page load
+    updateCartCount();
 });

@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        window.location.href = 'cart.html';
+        // window.location.href = 'cart.html';
     }
 
     // Event listener for add-product button
     document.querySelector('.add-product').addEventListener('click', function () {
         const product = JSON.parse(this.getAttribute('data-product'));
         addToCart(product);
+        updateCartCount();
     });
 
     updateCartCount();
