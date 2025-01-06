@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+ 
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h1>CozyHome</h1>
+            <form id="loginForm">
+                <input type="text" placeholder="Your Name" id="userName" required>
+                <div id="userNameError" class="error-message"></div>
+
+                <input type="email" placeholder="Email Address" id="email" required>
+                <div id="emailError" class="error-message"></div>
+
+                <input type="password" placeholder="Password" id="password" required>
+                <div id="passwordError" class="error-message"></div>
+
+                <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+                <div id="confirmPasswordError" class="error-message"></div>
+
+                <button type="submit">Login</button>
+                <a href="#">Forgot your password?</a>
+            </form>
+        </div>
+        <div class="image-section">
+            <h1>Welcome Back!</h1>
+            <p>Discover our premium furniture collection and shop with confidence.</p>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

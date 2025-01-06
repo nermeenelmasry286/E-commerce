@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/product.css">
+ 
+</head>
+<body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container">
+          
+            <a class="navbar-brand" href="#">CozyHome</a>
+    
+            
+            <div class="d-flex align-items-center">
+                <a class="nav-link p-2 d-lg-none" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+    
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                    <li class="nav-item">
+                        <a class="nav-link p-lg-3 fs-4 active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">Contact</a>
+                    </li>
+                </ul>
+    
+                <ul class="navbar-nav ms-auto align-items-center">
+                    
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link fs-5 p-lg-2 shopCart" href="#"><i class="fa-solid fa-cart-plus"></i>
+                            <div class="count">0 </div></a>
+                        
+                    </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 p-lg-2" href="#"><span id="user-name" class="user-name">Nermeen_Elmasry</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 p-lg-2 logOut" href="#">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- end Navbar -->
+
+    <!-- Start Product Details Section -->
+    <section class="product-details py-5 content">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Product Image -->
+                <div class="col-md-6">
+                    <img src="" id="productImage" class="img-fluid rounded" alt="Product Image">
+                   
+                </div>
+                <!-- Product Info -->
+                <div class="col-md-6">
+                   
+                    <h1 class="product-title mb-3" id="productName">Product Name</h1>
+                    <p class="product-category mb-1"><strong>Category:</strong> <span id="productCategory">Category</span></p>
+                    <p class="product-quality mb-1"><strong>Quality:</strong> <span id="productQuality">Quality</span></p>
+                    <p class="product-price mb-4"><strong>Price:</strong> $<span id="productPrice">0</span></p>
+                    <p class="product-description mb-4" id="productDescription">Product Description</p>
+                    <button class="btn w-100 mb-2 btn-color">Add to Cart</button>
+                    <button class="btn btn-outline-secondary w-100">Back to Products</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Product Details Section -->
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 CozyHome. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/product.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

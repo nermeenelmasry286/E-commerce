@@ -1,0 +1,121 @@
+:root { 
+    --main-color: #242e38;  
+    --accent-color: #efb188;  
+    --btn-text-color: #ffffff; 
+    --text-color: #000000; 
+    --text-light-color: #ffffff; 
+    --primary-color: #f9c7bc;  
+    --secondary-color: #868587; 
+    --btn-color: #ebc3a8; 
+    --btn-hover-color: #efb188; 
+    --bg-color: #f9f9f9; 
+    --overlay-color: rgba(0, 0, 0, 0.2); 
+    --filter-btn-color: #f1f1f1; 
+    --filter-btn-border-color: #ddd; 
+    --log-out-color:red;
+    --log-out-color-hover:rgb(180, 2, 2);
+    --filter-btn-hover-color: var(--main-color); 
+    --filter-btn-active-color: var(--main-color); 
+} 
+ 
+
+html, body {
+    height: 100%;
+}
+
+body { 
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: "Roboto", sans-serif; 
+    background-color: var(--bg-color); 
+} 
+ 
+.navbar { 
+    height: 100px; 
+    width: 100%; 
+    position: fixed; 
+    z-index: 1000; 
+    background-color: var(--main-color); 
+    top:0;
+    left:0;
+} 
+.shopCart{
+    position: relative;
+    background-color: var(--btn-hover-color);
+    border-radius: 50%;
+    
+
+}
+.count{
+    position: absolute;
+    top: -10px;
+    right: 0;
+
+}
+.logOut{
+    color:var(--log-out-color);
+}
+.logOut:hover{
+    color:var(--log-out-color-hover);
+}
+.navbar-brand { 
+    font-size: 1.8em; 
+    color: var(--accent-color); 
+} 
+ 
+@media (max-width: 767.98px) { 
+    .navbar-nav.ms-auto { 
+        justify-content: center; 
+        margin-top: 10px; 
+
+    } 
+    .navbar-collapse {
+        background-color: var(--bg-color); 
+        width: 100%;
+    }
+ 
+    .user-name { 
+        display: block; 
+        text-align: center; 
+    } 
+    .navbar-nav .shopCart{
+        position: relative;
+        background-color: var(--btn-hover-color);
+        border-radius: 50%;
+        
+    
+    }
+    .navbar-nav .count{
+        position: absolute;
+        top: -10px;
+        right: 0;
+    
+    }
+} 
+/* product details */
+.product-details{
+    margin-top: 100px;
+}
+
+.btn-color{
+    background-color:var(--accent-color)
+
+}
+
+.btn-color:hover{
+    background-color: #efb188;
+}
+.content {
+    flex: 1;
+}
+/* footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 0;
+}
+
+ 

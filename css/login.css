@@ -1,0 +1,116 @@
+:root {
+    --primary-color: #b38b6d; 
+    --primary-color-hover: #9e7b5c; 
+    --background-color: #f3f3f3; 
+    --container-background: #ffffff; 
+    --login-form-background: #fafafa; 
+    --input-border-color: #b3b3b3; 
+    --input-text-color: #333; 
+    --link-text-color: #7f8c8d; 
+    --image-section-background: url("../imgs/login-img.jpg");
+    --image-section-text-color: white; 
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+  }
+  
+  .container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 70vh;
+    background: var(--container-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .login-form {
+    flex: 1; 
+    padding: 40px; 
+    background: var(--login-form-background); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #fdb07c;  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+  }
+  
+  .login-form button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: var(--primary-color-hover);
+  }
+  
+  .login-form a {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--link-text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    
+}
+  .image-section {
+    flex: 1;
+    background: var(--image-section-background) no-repeat center center/cover;
+    color: var(--image-section-text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .image-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .image-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
