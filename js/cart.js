@@ -12,10 +12,9 @@ function loadCart() {
                 <div class="cart-details">
                     <h4>${product.name}</h4>
                     <p>Price: $${product.price}</p>
-                    
                 </div>
                 <div class="cart-actions">
-                    <input type="number" class="form-control mb-2" value="1" min="1" data-price="${product.price}">
+                    <input type="number" class="form-control mb-2" value="${product.quantity}" min="1" data-price="${product.price}">
                     <button class="btn btn-danger btn-sm">Remove</button>
                 </div>
             `;
