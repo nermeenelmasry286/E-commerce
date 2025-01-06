@@ -17,20 +17,15 @@
     <!-- Start Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container">
-          
             <a class="navbar-brand" href="#">CozyHome</a>
-    
-            
             <div class="d-flex align-items-center">
                 <a class="nav-link p-2 d-lg-none" href="#"><i class="fa-solid fa-cart-plus"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-    
-            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link p-lg-3 fs-4 active" aria-current="page" href="index.html">Home</a>
                     </li>
@@ -44,28 +39,23 @@
                         <a class="nav-link fs-4 p-lg-3" href="#">Contact</a>
                     </li>
                 </ul>
-    
                 <ul class="navbar-nav ms-auto align-items-center">
-                    
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link fs-5 p-lg-2 shopCart" href="#"><i class="fa-solid fa-cart-plus"></i>
-                            <div class="count">0 </div></a>
-                        
-                    </li>
-                    
-
-                    <li class="nav-item">
-                        <a class="nav-link fs-5 p-lg-2" href="#"><span id="user-name" class="user-name">Nermeen_Elmasry</span></a>
+                        <a class="nav-link fs-5 p-lg-2 shopCart" href="cart.html"><i class="fa-solid fa-cart-plus"></i>
+                            <div class="count">0</div>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5 p-lg-2 logOut" href="#">LogOut</a>
+                        <a class="nav-link fs-5 p-lg-2" href="#"><span id="user-name" class="user-name"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 p-lg-2 logOut" href="#" id="logoutLink">LogOut</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- end Navbar -->
+    <!-- End Navbar -->
 
     <!-- Start Product Details Section -->
     <section class="product-details py-5 content">
@@ -102,6 +92,7 @@
         </div>
     </footer>
 
+    <script src="js/common.js"></script>
     <script src="js/product.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
