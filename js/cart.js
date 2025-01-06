@@ -44,11 +44,17 @@ function updateTotalPrice() {
 
 // Function to update cart count
 function updateCartCount() {
-    try {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        document.getElementById('cart-count').textContent = cart.length;
-    } catch (error) {
-        console.error('Error updating cart count:', error);
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQuantity = cart.reduce((sum, product) => sum + (product.quantity || 1), 0);
+    document.getElementById('cart-count').textContent = totalQuantity;
+}
+
+// Function to update cart in localStorage
+function updateCart(index, quantity) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart[index]) {
+        cart[index].quantity = quantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 }
 
@@ -56,7 +62,12 @@ function updateCartCount() {
 document.addEventListener('input', (event) => {
     try {
         if (event.target.matches('.cart-item input')) {
+            const cartItem = event.target.closest('.cart-item');
+            const index = cartItem.dataset.index;
+            const quantity = parseInt(event.target.value);
+            updateCart(index, quantity);
             updateTotalPrice();
+            updateCartCount();
         }
     } catch (error) {
         console.error('Error handling quantity change:', error);
@@ -96,4 +107,7 @@ document.getElementById('proceed-to-checkout').addEventListener('click', () => {
 });
 
 // Load cart items on page load
-document.addEventListener('DOMContentLoaded', loadCart);
+document.addEventListener('DOMContentLoaded', function () {
+    loadCart();
+    updateCartCount();
+});

@@ -106,8 +106,17 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', () => {
             const product = JSON.parse(button.getAttribute('data-product'));
             addToCart(product);
+            updateCartCount();
         });
     });
+
+    updateCartCount();
 });
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQuantity = cart.reduce((sum, product) => sum + (product.quantity || 1), 0);
+    document.getElementById('cart-count').textContent = totalQuantity;
+}
 
 
