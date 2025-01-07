@@ -4,11 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (product) {
         document.getElementById('productName').textContent = product.name;
         document.getElementById('productCategory').textContent = product.category || 'N/A';
-        document.getElementById('productQuality').textContent = product.quality || 'N/A';
         document.getElementById('productPrice').textContent = product.price;
         document.getElementById('productDescription').textContent = product.description;
         document.getElementById('productImage').src = product.image || 'imgs/default-product.jpg';
-        
+
+        // Get quantity from cart if exists
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartProduct = cart.find(item => item.name === product.name);
+        document.getElementById('productQuantity').textContent = cartProduct ? cartProduct.quantity : 0;
+
         // Set data-product attribute on the add-product button
         document.querySelector('.add-product').setAttribute('data-product', JSON.stringify(product));
     } else {
@@ -28,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        // window.location.href = 'cart.html';
+        document.getElementById('productQuantity').textContent = existingProduct ? existingProduct.quantity : 1;
     }
 
     // Event listener for add-product button

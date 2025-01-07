@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link p-lg-3 fs-4 active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link p-lg-3 fs-4 active" aria-current="page" href="home.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fs-4 p-lg-3" href="#">Services</a>
@@ -67,7 +67,7 @@
         <div class="order-card">
             <h1>Order Shipped</h1>
             <p>Your order has been shipped successfully and is on its way to you. Thank you for shopping with us!</p>
-            <a href="index.html" class="btn btn-primary">Go Back to Home</a>
+            <a href="home.html" class="btn btn-primary">Go Back to Home</a>
         </div>
     </div>
 
@@ -84,5 +84,17 @@
     <script src="js/common.js"></script>
     <script src="js/shipped.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem('userName'); 
+                    window.location.href = 'index.html'; 
+                });
+            }
+        });
+    </script>
 </body>
 </html>

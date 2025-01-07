@@ -3,6 +3,7 @@ function loadCart() {
     try {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const cartContainer = document.querySelector('.cart-summary');
+        cartContainer.innerHTML = ''; // Clear the cart container before loading items
         cart.forEach((product, index) => {
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
@@ -18,7 +19,7 @@ function loadCart() {
                     <button class="btn btn-danger btn-sm">Remove</button>
                 </div>
             `;
-            cartContainer.insertAdjacentElement('beforebegin', cartItem);
+            cartContainer.appendChild(cartItem); // Append the new cart item directly to the cart container
         });
         updateTotalPrice();
         updateCartCount();
@@ -96,18 +97,24 @@ function removeFromCart(index) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
+        // Reload the cart to update the indices
+        loadCart();
     } catch (error) {
         console.error('Error removing item from cart:', error);
     }
 }
 
-// Event listener for "Proceed to Checkout" button
-document.getElementById('proceed-to-checkout').addEventListener('click', () => {
-    window.location.href = 'shipped.html';
-});
-
 // Load cart items on page load
 document.addEventListener('DOMContentLoaded', function () {
     loadCart();
     updateCartCount();
+    // Event listener for "Proceed to Checkout" button
+    document.getElementById('proceed-to-checkout').addEventListener('click', () => {
+        // Clear the cart in localStorage
+        localStorage.removeItem('cart');
+        // Reset the counter
+        document.getElementById('cart-count').textContent = '0';
+        // Redirect to the shipped page
+        window.location.href = 'shipped.html';
+    });
 });

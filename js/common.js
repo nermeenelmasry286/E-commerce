@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         logoutLink.addEventListener('click', function (e) {
             e.preventDefault();
             localStorage.removeItem('userName'); 
-            window.location.href = 'login.html'; 
+            window.location.href = 'index.html'; 
         });
     }
     //  end Logout functionality

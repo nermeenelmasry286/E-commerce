@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bondi.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container">
+          
+            <a class="navbar-brand" href="#">CozyHome</a>
+    
+            
+            <div class="d-flex align-items-center">
+                <a class="nav-link p-2 d-lg-none" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+    
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                    <li class="nav-item">
+                        <a class="nav-link p-lg-3 fs-4 active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 p-lg-3" href="#">Contact</a>
+                    </li>
+                </ul>
+    
+                <ul class="navbar-nav ms-auto align-items-center">
+                    
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link fs-5 p-lg-2 shopCart" href="cart.html"><i class="fa-solid fa-cart-plus"></i>
+                            <div class="count" id="cart-count">0</div></a>
+                        
+                    </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 p-lg-2" href="#"><span id="user-name" class="user-name"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 p-lg-2 logOut" href="#" id="logoutLink">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- end Navbar -->
+     
+    <!-- Start Img Container -->
+    <div class="image-container" id="imageContainer">
+        <div class="overlay"></div>
+    
+    
+        <!-- Navigation buttons -->
+        <button class="prev-btn" id="prevBtn"><i class="fa fa-chevron-left"></i></button>
+        <button class="next-btn" id="nextBtn"><i class="fa fa-chevron-right"></i></button>
+    
+        <div class="introduction-text">
+            <h1>Furniture That Reflects Your<span> Unique Style</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi eius corrupti ab error similique modi dolor molestias numquam nihil</p>
+            <button type="button" class="btn btn-lg">Learn More</button>
+        </div>
+
+    </div>
+    <!-- end Img Container -->
+
+
+     <!-- Start Products section -->
+
+
+    <div class="products-section py-5" id="productsSection">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Our Products</h2>
+        
+        <!-- Filter Section -->
+        <div class="filter-section text-center mb-4">
+            <button class="filter-btn active" data-filter="1">All</button>
+            <button class="filter-btn" data-filter="2">New</button>
+            <button class="filter-btn" data-filter="3">Sale</button>
+        </div>
+
+    
+        <!-- Product List --> 
+        <div class="row products-list"> 
+            <!-- Product Item 1 - All --> 
+            <div class="col-md-4 mb-4 product-item 1">  
+                <div class="product-card">  
+                    <div class="add-product" data-product='{"name": "Chair", "price": 200, "image": "imgs/homepage-img1.jpeg", "category": "All"}'>+</div> 
+                    <img src="imgs/homepage-img1.jpeg" alt="Product 1" class="img-fluid">   
+                    <h5 class="product-title">Chair</h5>  
+                    <h5 class="product-price">200$</h5>  
+                    <p class="product-description">A comfortable and stylish chair perfect for any room.</p>  
+                    <button class="btn btn-primary view-details" data-product='{"id": 1, "name": "Chair", "description": "A comfortable and stylish chair perfect for any room.", "price": 200, "image": "imgs/homepage-img1.jpeg", "category": "All"}'>View Details</button>
+                </div>  
+            
+            </div>
+            <!-- Product Item 2 - New --> 
+            <div class="col-md-4 mb-4 product-item 2"> 
+                <div class="product-card"> 
+                    <div class="add-product" data-product='{"name": "Table", "price": 150, "image": "imgs/homepage-img2.jpeg", "category": "New"}'>+</div> 
+                    <img src="imgs/homepage-img2.jpeg" alt="Product 2" class="img-fluid"> 
+                    <h5 class="product-title">Table</h5> 
+                    <h5 class="product-price">150$</h5>  
+                    <p class="product-description">A sturdy and elegant table for your dining or work needs.</p> 
+                    <button class="btn btn-primary view-details" data-product='{"id": 2, "name": "Table", "description": "A sturdy and elegant table for your dining or work needs.", "price": 150, "image": "imgs/homepage-img2.jpeg", "category": "New"}'>View Details</button>
+                </div> 
+            </div> 
+            <!-- Product Item 3 - Sale --> 
+            <div class="col-md-4 mb-4 product-item 3"> 
+                <div class="product-card"> 
+                    <div class="add-product" data-product='{"name": "Sofa", "price": 300, "image": "imgs/homepage-img5.jpeg", "category": "Sale"}'>+</div>
+                    <img src="imgs/homepage-img5.jpeg" alt="Product 3" class="img-fluid"> 
+                    <h5 class="product-title">Sofa</h5> 
+                    <h5 class="product-price">300$</h5>  
+                    <p class="product-description">A luxurious sofa that adds a touch of class to your living room.</p> 
+                    <button class="btn btn-primary view-details" data-product='{"id": 3, "name": "Sofa", "description": "A luxurious sofa that adds a touch of class to your living room.", "price": 300, "image": "imgs/homepage-img5.jpeg", "category": "Sale"}'>View Details</button>
+                </div> 
+            </div> 
+            <!-- Product Item 4 - All --> 
+            <div class="col-md-4 mb-4 product-item 4"> 
+                <div class="product-card"> 
+                    <div class="add-product" data-product='{"name": "Lamp", "price": 50, "image": "imgs/homepage-img4.jpeg", "category": "All"}'>+</div> 
+                    <img src="imgs/homepage-img4.jpeg" alt="Product 4" class="img-fluid"> 
+                    <h5 class="product-title">Lamp</h5> 
+                    <h5 class="product-price">50$</h5>  
+                    <p class="product-description">A modern lamp to brighten up your space with style.</p> 
+                    <button class="btn btn-primary view-details" data-product='{"id": 4, "name": "Lamp", "description": "A modern lamp to brighten up your space with style.", "price": 50, "image": "imgs/homepage-img4.jpeg", "category": "All"}'>View Details</button>
+                </div> 
+            </div> 
+        </div>
+
+
+
+
+
+  <!-- Our Services Section -->
+  <section id="services" class="container py-5 bg-secondary-custom">
+    <h2 class="text-center text-white">Our Services</h2>
+    <div class="row">
+      <!-- Service 1 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/homepage-img4.jpeg" class="card-img-top" alt="Service 1">
+          <div class="card-body">
+            <h5 class="card-title">Interior Design</h5>
+            <p class="card-text">Professional interior design services to transform your space.</p>
+            <a href="#" class="btn btn-custom">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/homepage-img5.jpeg" class="card-img-top" alt="Service 2">
+          <div class="card-body">
+            <h5 class="card-title">Custom Furniture</h5>
+            <p class="card-text">Bespoke furniture tailored to your specific needs and preferences.</p>
+            <a href="#" class="btn btn-custom">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/homepage-img2.jpeg" class="card-img-top" alt="Service 3">
+          <div class="card-body">
+            <h5 class="card-title">Home Staging</h5>
+            <p class="card-text">Expert home staging services to make your property stand out.</p>
+            <a href="#" class="btn btn-custom">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about -->
+   
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="text-center text-primary-custom mb-4">About Us</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="imgs/about.jpeg" alt="About Us" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <p>
+                    At <strong>CozyHome</strong>, we believe in blending style with comfort. 
+                    Established in 2025, we specialize in premium furniture solutions 
+                    that suit your personal taste.
+                </p>
+                <p>
+                    Our mission is to provide innovative and sustainable designs that 
+                    enhance your home experience. Let us make your house a home!
+                </p>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Footer -->
+ <!-- <footer id="footer" class="bg-dark text-white py-3">
+    <div class="container text-center">
+        <p>© 2025 CozyHome. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer> -->
+<!-- End Footer -->
+
+    <script src="js/common.js"></script>
+    <script src="js/bondi.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem('userName'); 
+                    window.location.href = 'index.html'; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    //  start slider imgs
-    let imageContainer = document.querySelector("#imageContainer");
-
-    let arr = [
+    // Start slider images
+    const imageContainer = document.querySelector("#imageContainer");
+    const images = [
         'imgs/homepage-img1.jpeg',
         'imgs/homepage-img2.jpeg',
         'imgs/homepage-img3.jpeg',
@@ -10,74 +9,49 @@ document.addEventListener('DOMContentLoaded', function () {
         'imgs/homepage-img5.jpeg',
         'imgs/homepage-img6.jpeg'
     ];
-
     let currentIndex = 0;
 
     function changeImage() {
-        imageContainer.style.backgroundImage = 'url("' + arr[currentIndex] + '")';
+        imageContainer.style.backgroundImage = `url("${images[currentIndex]}")`;
     }
 
     function nextImage() {
-        currentIndex = (currentIndex + 1) % arr.length; 
+        currentIndex = (currentIndex + 1) % images.length;
         changeImage();
     }
 
     function prevImage() {
-        currentIndex = (currentIndex - 1 + arr.length) % arr.length; 
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
         changeImage();
     }
 
     document.getElementById("nextBtn").addEventListener("click", nextImage);
     document.getElementById("prevBtn").addEventListener("click", prevImage);
-    setInterval(()=>{
-        nextImage()
+    setInterval(nextImage, 5000);
+    // End slider images
 
-    },3000)
-
-    // end slider imgs
-
-    // Filter Products by category
+    // Filter products by category
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productItems = document.querySelectorAll('.product-item');
 
-    // Function to filter products based on the selected filter
     function filterProducts(filter) {
-        // Toggle active class on buttons
         filterButtons.forEach(button => button.classList.remove('active'));
-        // Add active class to the selected filter button
         const selectedButton = Array.from(filterButtons).find(button => button.getAttribute('data-filter') === filter);
-        if (selectedButton) {
-            selectedButton.classList.add('active');
-        }
+        if (selectedButton) selectedButton.classList.add('active');
 
-        // Show filtered products
         productItems.forEach(item => {
-            // Hide all items first
-            item.style.display = 'none';
-
-            // Show items based on the selected filter
-            if (filter === '1') {
-                item.style.display = 'block'; // Show all products
-            } else if (item.classList.contains(filter)) {
-                item.style.display = 'block'; // Show selected category products
-            }
+            item.style.display = filter === '1' || item.classList.contains(filter) ? 'block' : 'none';
         });
     }
 
-    // Add event listener to all filter buttons
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
-            filterProducts(filter);
-        });
+        button.addEventListener('click', () => filterProducts(button.getAttribute('data-filter')));
     });
 
-    // Apply the 'All' filter (default filter) when the page loads
     filterProducts('1'); // Show all products by default
 
-    // Handle View Details button click
-    const viewDetailsButtons = document.querySelectorAll('.view-details');
-    viewDetailsButtons.forEach(button => {
+    // Handle view details button click
+    document.querySelectorAll('.view-details').forEach(button => {
         button.addEventListener('click', function () {
             const product = JSON.parse(this.getAttribute('data-product'));
             localStorage.setItem('selectedProduct', JSON.stringify(product));
@@ -87,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to add product to cart
     function addToCart(product) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(item => item.name === product.name);
 
         if (existingProduct) {
@@ -98,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        // window.location.href = 'cart.html';
     }
 
     // Event listener for add-product buttons
@@ -111,6 +84,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateCartCount();
+
+    const logoutLink = document.getElementById('logoutLink');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('userName'); 
+            window.location.href = 'index.html'; 
+        });
+    }
 });
 
 function updateCartCount() {
