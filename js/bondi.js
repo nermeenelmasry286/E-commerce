@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(nextImage, 5000);
     // End slider images
 
-    // Filter products by category
+    // filter by category
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productItems = document.querySelectorAll('.product-item');
 
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', () => filterProducts(button.getAttribute('data-filter')));
     });
 
-    filterProducts('1'); // Show all products by default
+    filterProducts('1'); // Show all products 
 
-    // Handle view details button click
+    // add product details to local storage
     document.querySelectorAll('.view-details').forEach(button => {
         button.addEventListener('click', function () {
             const product = JSON.parse(this.getAttribute('data-product'));
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Function to add product to cart
+    // add product to cart
     function addToCart(product) {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(item => item.name === product.name);
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // Event listener for add-product buttons
+    //  add event listener for add-product buttons
     document.querySelectorAll('.add-product').forEach(button => {
         button.addEventListener('click', () => {
             const product = JSON.parse(button.getAttribute('data-product'));
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateCartCount();
+
 
     const logoutLink = document.getElementById('logoutLink');
     if (logoutLink) {

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     //end User name in top of navbar
 
-    // start  Logout functionality
+    // start  Logout 
     const logoutLink = document.getElementById('logoutLink');
     if (logoutLink) {
         logoutLink.addEventListener('click', function (e) {
@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'index.html'; 
         });
     }
-    //  end Logout functionality
+    //  end Logout 
 
-    // Ensure event listener is attached only once
+    // add only product to cart
     const addProductButtons = document.querySelectorAll('.add-product');
     addProductButtons.forEach(button => {
         button.removeEventListener('click', addToCart); 
@@ -37,6 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cart-count').textContent = totalQuantity;
     }
 
-    // Call updateCartCount on page load
+    
     updateCartCount();
 });
