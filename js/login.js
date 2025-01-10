@@ -10,49 +10,60 @@ document.addEventListener('DOMContentLoaded', function () {
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); 
-
+    function validateField(field) {
         let isValid = true;
 
-        userNameError.textContent = '';
-        emailError.textContent = '';
-        passwordError.textContent = '';
-        confirmPasswordError.textContent = '';
-
-        if (!userName.value.trim() || !validateName(userName.value.trim())) {
-            userNameError.textContent = 'Username must be at least 5 characters long.';
-            isValid = false;
-        }
-        
-        
-        if (!email.value.trim() || !validateEmail(email.value.trim())) {
-            emailError.textContent = 'Please enter a valid email address.';
-            isValid = false;
-        }
-        
-        
-        if (!password.value.trim() || !validatePassword(password.value.trim())) {
-            passwordError.textContent = 'Password must be at least 8 characters long, contain an uppercase letter, and include any of _-@#$%^&*.';
-            isValid = false;
+        if (field === userName) {
+            userNameError.textContent = '';
+            if (!userName.value.trim() || !validateName(userName.value.trim())) {
+                userNameError.textContent = 'Username must be at least 5 characters long and contain only letters.';
+                isValid = false;
+            }
         }
 
-        
-        if (password.value.trim() !== confirmPassword.value.trim()) {
-            confirmPasswordError.textContent = 'Passwords do not match.';
-            isValid = false;
+        if (field === email) {
+            emailError.textContent = '';
+            if (!email.value.trim() || !validateEmail(email.value.trim())) {
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
         }
 
-        
-        if (isValid) {
+        if (field === password) {
+            passwordError.textContent = '';
+            if (!password.value.trim() || !validatePassword(password.value.trim())) {
+                passwordError.textContent = 'Password must be at least 8 characters long, contain an uppercase letter, and include any of _-@#$%^&*.';
+                isValid = false;
+            }
+        }
+
+        if (field === confirmPassword) {
+            confirmPasswordError.textContent = '';
+            if (password.value.trim() !== confirmPassword.value.trim()) {
+                confirmPasswordError.textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+        }
+
+        return isValid;
+    }
+
+    userName.addEventListener('input', function () { validateField(userName); });
+    email.addEventListener('input', function () { validateField(email); });
+    password.addEventListener('input', function () { validateField(password); });
+    confirmPassword.addEventListener('input', function () { validateField(confirmPassword); });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateField(userName) && validateField(email) && validateField(password) && validateField(confirmPassword)) {
             localStorage.setItem('userName', userName.value.trim());
             window.location.href = 'home.html';
         }
     });
 
-   
     function validateName(userName) {
-        return userName.length >= 5;
+        const regex = /^[a-zA-Z]{5,}$/;
+        return regex.test(userName);
     }
 
     function validateEmail(email) {
@@ -60,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return regex.test(email);
     }
 
- 
     function validatePassword(password) {
         const regex = /^(?=.*[a-zA-Z])(?=.*[_\-@#$%^&*]).{8,}$/;
         return regex.test(password);

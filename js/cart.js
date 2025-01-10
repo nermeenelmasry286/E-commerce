@@ -1,30 +1,30 @@
 // load cart items from localStorage
 function loadCart() {
-   
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartContainer = document.querySelector('.cart-summary');
-        cartContainer.innerHTML = ''; 
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.querySelector('.cart-summary');
+    cartContainer.innerHTML = ''; 
 
-        cart.forEach((product, index) => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.dataset.index = index;
-            cartItem.innerHTML = `
+    cart.forEach((product, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.dataset.index = index;
+        cartItem.innerHTML = `
+            <a href="product.html" class="product-link" data-product='${JSON.stringify(product)}'>
                 <img src="${product.image}" alt="${product.name}">
-                <div class="cart-details">
-                    <h4>${product.name}</h4>
-                    <p>Price: $${product.price}</p>
-                </div>
-                <div class="cart-actions">
-                    <input type="number" class="form-control mb-2" value="${product.quantity}" min="1" data-price="${product.price}">
-                    <button class="btn btn-danger btn-sm">Remove</button>
-                </div>
-            `;
-            cartContainer.appendChild(cartItem); 
-        });
-        updateTotalPrice();
-        updateCartCount();
- 
+            </a>
+            <div class="cart-details">
+                <h4>${product.name}</h4>
+                <p>Price: $${product.price}</p>
+            </div>
+            <div class="cart-actions">
+                <input type="number" class="form-control mb-2" value="${product.quantity}" min="1" data-price="${product.price}">
+                <button class="btn btn-danger btn-sm">Remove</button>
+            </div>
+        `;
+        cartContainer.appendChild(cartItem); 
+    });
+    updateTotalPrice();
+    updateCartCount();
 }
 
 // update total price
@@ -95,6 +95,15 @@ function removeFromCart(index) {
 
     
 }
+
+// Event listener for product image click
+document.addEventListener('click', (event) => {
+    if (event.target.closest('.product-link')) {
+        const productLink = event.target.closest('.product-link');
+        const product = JSON.parse(productLink.getAttribute('data-product'));
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+    }
+});
 
 // Load cart items on page load
 document.addEventListener('DOMContentLoaded', function () {
