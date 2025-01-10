@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('productCategory').textContent = product.category ;
         document.getElementById('productPrice').textContent = product.price;
         document.getElementById('productDescription').textContent = product.description;
-        document.getElementById('productImage').src = product.image || 'imgs/default-product.jpg';
+        document.getElementById('productImage').src = product.image ;
 
         // Get quantity from cart
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
