@@ -55,9 +55,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (validateField(userName) && validateField(email) && validateField(password) && validateField(confirmPassword)) {
+        let isFormValid = true;
+
+        if (!validateField(userName)) {
+            isFormValid = false;
+        }
+        if (!validateField(email)) {
+            isFormValid = false;
+        }
+        if (!validateField(password)) {
+            isFormValid = false;
+        }
+        if (!validateField(confirmPassword)) {
+            isFormValid = false;
+        }
+
+        if (isFormValid) {
             localStorage.setItem('userName', userName.value.trim());
             window.location.href = 'home.html';
+        } else {
+            alert('Please fill in all fields correctly.');
         }
     });
 

@@ -114,3 +114,18 @@
     font-size: 1.2rem;
     line-height: 1.5;
   }
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: 100vh;
+    }
+  
+    .login-form {
+      padding: 20px;
+    }
+  
+    .image-section {
+      padding: 20px;
+      display: none;
+    }
+  }
