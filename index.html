@@ -6,23 +6,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/login.css">
 
-    
+
 </head>
 <body>
     <div class="container">
         <div class="login-form">
             <h1>CozyHome</h1>
             <form id="loginForm">
-                <input type="text" placeholder="Your Name" id="userName" required>
+                <input type="text" placeholder="Your Name" id="userName" autocomplete="off" required>
                 <div id="userNameError" class="error-message"></div>
 
-                <input type="email" placeholder="Email Address" id="email" required>
+                <input type="email" placeholder="Email Address" id="email" autocomplete="off" required>
                 <div id="emailError" class="error-message"></div>
 
-                <input type="password" placeholder="Password" id="password" required>
+                <input type="password" placeholder="Password" id="password" autocomplete="off" required>
                 <div id="passwordError" class="error-message"></div>
 
-                <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+                <input type="password" placeholder="Confirm Password" id="confirmPassword" autocomplete="off" required>
                 <div id="confirmPasswordError" class="error-message"></div>
 
                 <button type="submit">Login</button>

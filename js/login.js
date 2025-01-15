@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (field === userName) {
             userNameError.textContent = '';
             if (!userName.value.trim() || !validateName(userName.value.trim())) {
-                userNameError.textContent = 'Username must be at least 5 characters long and contain only letters.';
+                userNameError.textContent = 'Username must be at least 4 characters long and contain only letters.';
                 isValid = false;
             }
         }
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function validateName(userName) {
-        const regex = /^[a-zA-Z]{5,}$/;
+        const regex = /^[a-zA-Z]{4,}$/;
         return regex.test(userName);
     }
 
